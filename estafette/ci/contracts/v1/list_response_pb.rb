@@ -6,9 +6,11 @@ require 'google/protobuf'
 require 'estafette/ci/contracts/v1/pagination_pb'
 require 'google/protobuf/any_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.ListResponse" do
-    repeated :items, :message, 1, "google.protobuf.Any"
-    optional :pagination, :message, 2, "estafette.ci.contracts.v1.Pagination"
+  add_file("estafette/ci/contracts/v1/list_response.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.ListResponse" do
+      repeated :items, :message, 1, "google.protobuf.Any"
+      optional :pagination, :message, 2, "estafette.ci.contracts.v1.Pagination"
+    end
   end
 end
 

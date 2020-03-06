@@ -13,22 +13,24 @@ require 'estafette/ci/contracts/v1/trusted_image_config_pb'
 require 'estafette/ci/manifest/v1/estafette_event_pb'
 require 'estafette/ci/manifest/v1/estafette_manifest_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.BuilderConfig" do
-    optional :action, :string, 1
-    optional :track, :string, 2
-    optional :registry_mirror, :string, 3
-    optional :docker_daemon_mtu, :string, 4
-    optional :manifest, :message, 5, "estafette.ci.manifest.v1.EstafetteManifest"
-    optional :job_name, :string, 6
-    optional :release_name, :string, 7
-    repeated :events, :message, 8, "estafette.ci.manifest.v1.EstafetteEvent"
-    optional :ci_server, :message, 9, "estafette.ci.contracts.v1.CiServerConfig"
-    optional :build_params, :message, 10, "estafette.ci.contracts.v1.BuildParamsConfig"
-    optional :release_params, :message, 11, "estafette.ci.contracts.v1.ReleaseParamsConfig"
-    optional :git, :message, 12, "estafette.ci.contracts.v1.GitConfig"
-    optional :build_version, :message, 13, "estafette.ci.contracts.v1.BuildVersionConfig"
-    repeated :credentials, :message, 14, "estafette.ci.contracts.v1.CredentialConfig"
-    repeated :trusted_images, :message, 15, "estafette.ci.contracts.v1.TrustedImageConfig"
+  add_file("estafette/ci/contracts/v1/builder_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.BuilderConfig" do
+      optional :action, :string, 1
+      optional :track, :string, 2
+      optional :registry_mirror, :string, 3
+      optional :docker_daemon_mtu, :string, 4
+      optional :manifest, :message, 5, "estafette.ci.manifest.v1.EstafetteManifest"
+      optional :job_name, :string, 6
+      optional :release_name, :string, 7
+      repeated :events, :message, 8, "estafette.ci.manifest.v1.EstafetteEvent"
+      optional :ci_server, :message, 9, "estafette.ci.contracts.v1.CiServerConfig"
+      optional :build_params, :message, 10, "estafette.ci.contracts.v1.BuildParamsConfig"
+      optional :release_params, :message, 11, "estafette.ci.contracts.v1.ReleaseParamsConfig"
+      optional :git, :message, 12, "estafette.ci.contracts.v1.GitConfig"
+      optional :build_version, :message, 13, "estafette.ci.contracts.v1.BuildVersionConfig"
+      repeated :credentials, :message, 14, "estafette.ci.contracts.v1.CredentialConfig"
+      repeated :trusted_images, :message, 15, "estafette.ci.contracts.v1.TrustedImageConfig"
+    end
   end
 end
 

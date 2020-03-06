@@ -6,16 +6,18 @@ require 'google/protobuf'
 require 'estafette/ci/contracts/v1/build_log_step_pb'
 require 'google/protobuf/timestamp_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.BuildLog" do
-    optional :id, :string, 1
-    optional :repo_source, :string, 2
-    optional :repo_owner, :string, 3
-    optional :repo_name, :string, 4
-    optional :repo_branch, :string, 5
-    optional :repo_revision, :string, 6
-    optional :build_id, :string, 7
-    repeated :steps, :message, 8, "estafette.ci.contracts.v1.BuildLogStep"
-    optional :inserted_at_time, :message, 9, "google.protobuf.Timestamp"
+  add_file("estafette/ci/contracts/v1/build_log.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.BuildLog" do
+      optional :id, :string, 1
+      optional :repo_source, :string, 2
+      optional :repo_owner, :string, 3
+      optional :repo_name, :string, 4
+      optional :repo_branch, :string, 5
+      optional :repo_revision, :string, 6
+      optional :build_id, :string, 7
+      repeated :steps, :message, 8, "estafette.ci.contracts.v1.BuildLogStep"
+      optional :inserted_at_time, :message, 9, "google.protobuf.Timestamp"
+    end
   end
 end
 

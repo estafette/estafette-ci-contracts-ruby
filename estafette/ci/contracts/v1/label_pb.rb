@@ -4,9 +4,11 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.Label" do
-    optional :key, :string, 1
-    optional :value, :string, 2
+  add_file("estafette/ci/contracts/v1/label.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.Label" do
+      optional :key, :string, 1
+      optional :value, :string, 2
+    end
   end
 end
 

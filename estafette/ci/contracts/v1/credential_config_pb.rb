@@ -5,10 +5,12 @@ require 'google/protobuf'
 
 require 'google/protobuf/any_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.CredentialConfig" do
-    optional :name, :string, 1
-    optional :type, :string, 2
-    map :additional_properties, :string, :message, 3, "google.protobuf.Any"
+  add_file("estafette/ci/contracts/v1/credential_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.CredentialConfig" do
+      optional :name, :string, 1
+      optional :type, :string, 2
+      map :additional_properties, :string, :message, 3, "google.protobuf.Any"
+    end
   end
 end
 

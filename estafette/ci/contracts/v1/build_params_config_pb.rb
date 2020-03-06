@@ -4,8 +4,10 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.BuildParamsConfig" do
-    optional :build_id, :int64, 1
+  add_file("estafette/ci/contracts/v1/build_params_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.BuildParamsConfig" do
+      optional :build_id, :int64, 1
+    end
   end
 end
 

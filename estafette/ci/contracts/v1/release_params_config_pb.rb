@@ -4,11 +4,13 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.ReleaseParamsConfig" do
-    optional :release_name, :string, 1
-    optional :release_id, :int64, 2
-    optional :release_action, :string, 3
-    optional :triggered_by, :string, 4
+  add_file("estafette/ci/contracts/v1/release_params_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.ReleaseParamsConfig" do
+      optional :release_name, :string, 1
+      optional :release_id, :int64, 2
+      optional :release_action, :string, 3
+      optional :triggered_by, :string, 4
+    end
   end
 end
 

@@ -5,9 +5,11 @@ require 'google/protobuf'
 
 require 'estafette/ci/contracts/v1/git_author_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.GitCommit" do
-    optional :message, :string, 1
-    optional :author, :message, 2, "estafette.ci.contracts.v1.GitAuthor"
+  add_file("estafette/ci/contracts/v1/git_commit.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.GitCommit" do
+      optional :message, :string, 1
+      optional :author, :message, 2, "estafette.ci.contracts.v1.GitAuthor"
+    end
   end
 end
 

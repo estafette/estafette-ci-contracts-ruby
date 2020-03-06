@@ -4,8 +4,10 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteCronTrigger" do
-    optional :schedule, :string, 1
+  add_file("estafette/ci/manifest/v1/estafette_cron_trigger.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteCronTrigger" do
+      optional :schedule, :string, 1
+    end
   end
 end
 

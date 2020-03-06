@@ -11,26 +11,28 @@ require 'google/protobuf/timestamp_pb'
 require 'estafette/ci/manifest/v1/estafette_event_pb'
 require 'estafette/ci/manifest/v1/estafette_trigger_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.Pipeline" do
-    optional :id, :string, 1
-    optional :repo_source, :string, 2
-    optional :repo_owner, :string, 3
-    optional :repo_name, :string, 4
-    optional :repo_branch, :string, 5
-    optional :repo_revision, :string, 6
-    optional :build_version, :string, 7
-    optional :build_status, :string, 8
-    repeated :labels, :message, 9, "estafette.ci.contracts.v1.Label"
-    repeated :release_targets, :message, 10, "estafette.ci.contracts.v1.ReleaseTarget"
-    optional :manifest, :string, 11
-    optional :manifest_with_defaults, :string, 12
-    repeated :commits, :message, 13, "estafette.ci.contracts.v1.GitCommit"
-    repeated :triggers, :message, 14, "estafette.ci.manifest.v1.EstafetteTrigger"
-    repeated :events, :message, 15, "estafette.ci.manifest.v1.EstafetteEvent"
-    optional :inserted_at_time, :message, 16, "google.protobuf.Timestamp"
-    optional :updated_at_time, :message, 17, "google.protobuf.Timestamp"
-    optional :duration, :message, 18, "google.protobuf.Duration"
-    optional :last_updated_at_time, :message, 19, "google.protobuf.Timestamp"
+  add_file("estafette/ci/contracts/v1/pipeline.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.Pipeline" do
+      optional :id, :string, 1
+      optional :repo_source, :string, 2
+      optional :repo_owner, :string, 3
+      optional :repo_name, :string, 4
+      optional :repo_branch, :string, 5
+      optional :repo_revision, :string, 6
+      optional :build_version, :string, 7
+      optional :build_status, :string, 8
+      repeated :labels, :message, 9, "estafette.ci.contracts.v1.Label"
+      repeated :release_targets, :message, 10, "estafette.ci.contracts.v1.ReleaseTarget"
+      optional :manifest, :string, 11
+      optional :manifest_with_defaults, :string, 12
+      repeated :commits, :message, 13, "estafette.ci.contracts.v1.GitCommit"
+      repeated :triggers, :message, 14, "estafette.ci.manifest.v1.EstafetteTrigger"
+      repeated :events, :message, 15, "estafette.ci.manifest.v1.EstafetteEvent"
+      optional :inserted_at_time, :message, 16, "google.protobuf.Timestamp"
+      optional :updated_at_time, :message, 17, "google.protobuf.Timestamp"
+      optional :duration, :message, 18, "google.protobuf.Duration"
+      optional :last_updated_at_time, :message, 19, "google.protobuf.Timestamp"
+    end
   end
 end
 

@@ -6,10 +6,12 @@ require 'google/protobuf'
 require 'estafette/ci/contracts/v1/release_pb'
 require 'estafette/ci/manifest/v1/estafette_release_action_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.ReleaseTarget" do
-    optional :name, :string, 1
-    repeated :actions, :message, 2, "estafette.ci.manifest.v1.EstafetteReleaseAction"
-    repeated :active_releases, :message, 3, "estafette.ci.contracts.v1.Release"
+  add_file("estafette/ci/contracts/v1/release_target.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.ReleaseTarget" do
+      optional :name, :string, 1
+      repeated :actions, :message, 2, "estafette.ci.manifest.v1.EstafetteReleaseAction"
+      repeated :active_releases, :message, 3, "estafette.ci.contracts.v1.Release"
+    end
   end
 end
 

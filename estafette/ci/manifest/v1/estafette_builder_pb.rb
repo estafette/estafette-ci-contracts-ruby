@@ -4,9 +4,11 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteBuilder" do
-    optional :track, :string, 1
-    optional :operating_system, :string, 2
+  add_file("estafette/ci/manifest/v1/estafette_builder.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteBuilder" do
+      optional :track, :string, 1
+      optional :operating_system, :string, 2
+    end
   end
 end
 

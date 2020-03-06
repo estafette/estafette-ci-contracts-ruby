@@ -9,14 +9,16 @@ require 'estafette/ci/manifest/v1/estafette_stage_pb'
 require 'estafette/ci/manifest/v1/estafette_trigger_pb'
 require 'estafette/ci/manifest/v1/estafette_version_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteManifest" do
-    optional :builder, :message, 1, "estafette.ci.manifest.v1.EstafetteBuilder"
-    map :labels, :string, :string, 2
-    optional :version, :message, 3, "estafette.ci.manifest.v1.EstafetteVersion"
-    map :global_env_vars, :string, :string, 4
-    repeated :triggers, :message, 5, "estafette.ci.manifest.v1.EstafetteTrigger"
-    repeated :stages, :message, 6, "estafette.ci.manifest.v1.EstafetteStage"
-    repeated :releases, :message, 7, "estafette.ci.manifest.v1.EstafetteRelease"
+  add_file("estafette/ci/manifest/v1/estafette_manifest.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteManifest" do
+      optional :builder, :message, 1, "estafette.ci.manifest.v1.EstafetteBuilder"
+      map :labels, :string, :string, 2
+      optional :version, :message, 3, "estafette.ci.manifest.v1.EstafetteVersion"
+      map :global_env_vars, :string, :string, 4
+      repeated :triggers, :message, 5, "estafette.ci.manifest.v1.EstafetteTrigger"
+      repeated :stages, :message, 6, "estafette.ci.manifest.v1.EstafetteStage"
+      repeated :releases, :message, 7, "estafette.ci.manifest.v1.EstafetteRelease"
+    end
   end
 end
 

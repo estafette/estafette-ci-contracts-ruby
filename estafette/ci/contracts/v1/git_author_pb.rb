@@ -4,10 +4,12 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.GitAuthor" do
-    optional :email, :string, 1
-    optional :name, :string, 2
-    optional :username, :string, 3
+  add_file("estafette/ci/contracts/v1/git_author.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.GitAuthor" do
+      optional :email, :string, 1
+      optional :name, :string, 2
+      optional :username, :string, 3
+    end
   end
 end
 

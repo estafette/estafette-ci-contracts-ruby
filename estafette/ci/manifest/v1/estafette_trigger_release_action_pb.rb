@@ -4,10 +4,12 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteTriggerReleaseAction" do
-    optional :target, :string, 1
-    optional :action, :string, 2
-    optional :version, :string, 3
+  add_file("estafette/ci/manifest/v1/estafette_trigger_release_action.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteTriggerReleaseAction" do
+      optional :target, :string, 1
+      optional :action, :string, 2
+      optional :version, :string, 3
+    end
   end
 end
 

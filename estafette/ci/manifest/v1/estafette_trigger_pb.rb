@@ -12,15 +12,17 @@ require 'estafette/ci/manifest/v1/estafette_release_trigger_pb'
 require 'estafette/ci/manifest/v1/estafette_trigger_build_action_pb'
 require 'estafette/ci/manifest/v1/estafette_trigger_release_action_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteTrigger" do
-    optional :pipeline, :message, 1, "estafette.ci.manifest.v1.EstafettePipelineTrigger"
-    optional :release, :message, 2, "estafette.ci.manifest.v1.EstafetteReleaseTrigger"
-    optional :git, :message, 3, "estafette.ci.manifest.v1.EstafetteGitTrigger"
-    optional :docker, :message, 4, "estafette.ci.manifest.v1.EstafetteDockerTrigger"
-    optional :cron, :message, 5, "estafette.ci.manifest.v1.EstafetteCronTrigger"
-    optional :pub_sub, :message, 6, "estafette.ci.manifest.v1.EstafettePubSubTrigger"
-    optional :build_action, :message, 7, "estafette.ci.manifest.v1.EstafetteTriggerBuildAction"
-    optional :release_action, :message, 8, "estafette.ci.manifest.v1.EstafetteTriggerReleaseAction"
+  add_file("estafette/ci/manifest/v1/estafette_trigger.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteTrigger" do
+      optional :pipeline, :message, 1, "estafette.ci.manifest.v1.EstafettePipelineTrigger"
+      optional :release, :message, 2, "estafette.ci.manifest.v1.EstafetteReleaseTrigger"
+      optional :git, :message, 3, "estafette.ci.manifest.v1.EstafetteGitTrigger"
+      optional :docker, :message, 4, "estafette.ci.manifest.v1.EstafetteDockerTrigger"
+      optional :cron, :message, 5, "estafette.ci.manifest.v1.EstafetteCronTrigger"
+      optional :pub_sub, :message, 6, "estafette.ci.manifest.v1.EstafettePubSubTrigger"
+      optional :build_action, :message, 7, "estafette.ci.manifest.v1.EstafetteTriggerBuildAction"
+      optional :release_action, :message, 8, "estafette.ci.manifest.v1.EstafetteTriggerReleaseAction"
+    end
   end
 end
 

@@ -4,10 +4,12 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteVersionParams" do
-    optional :auto_increment, :int64, 1
-    optional :branch, :string, 2
-    optional :revision, :string, 3
+  add_file("estafette/ci/manifest/v1/estafette_version_params.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteVersionParams" do
+      optional :auto_increment, :int64, 1
+      optional :branch, :string, 2
+      optional :revision, :string, 3
+    end
   end
 end
 

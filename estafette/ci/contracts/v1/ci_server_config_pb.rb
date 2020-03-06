@@ -4,11 +4,13 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.CiServerConfig" do
-    optional :base_url, :string, 1
-    optional :builder_events_url, :string, 2
-    optional :post_logs_url, :string, 3
-    optional :api_key, :string, 4
+  add_file("estafette/ci/contracts/v1/ci_server_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.CiServerConfig" do
+      optional :base_url, :string, 1
+      optional :builder_events_url, :string, 2
+      optional :post_logs_url, :string, 3
+      optional :api_key, :string, 4
+    end
   end
 end
 

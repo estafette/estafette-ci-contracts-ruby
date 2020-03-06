@@ -5,12 +5,14 @@ require 'google/protobuf'
 
 require 'estafette/ci/manifest/v1/string_or_string_array_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteSemverVersion" do
-    optional :major, :int64, 1
-    optional :minor, :int64, 2
-    optional :patch, :string, 3
-    optional :label_template, :string, 4
-    optional :release_branch, :message, 5, "estafette.ci.manifest.v1.StringOrStringArray"
+  add_file("estafette/ci/manifest/v1/estafette_semver_version.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteSemverVersion" do
+      optional :major, :int64, 1
+      optional :minor, :int64, 2
+      optional :patch, :string, 3
+      optional :label_template, :string, 4
+      optional :release_branch, :message, 5, "estafette.ci.manifest.v1.StringOrStringArray"
+    end
   end
 end
 

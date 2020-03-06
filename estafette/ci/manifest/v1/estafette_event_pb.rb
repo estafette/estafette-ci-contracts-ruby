@@ -11,14 +11,16 @@ require 'estafette/ci/manifest/v1/estafette_pipeline_event_pb'
 require 'estafette/ci/manifest/v1/estafette_pub_sub_event_pb'
 require 'estafette/ci/manifest/v1/estafette_release_event_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteEvent" do
-    optional :pipeline, :message, 1, "estafette.ci.manifest.v1.EstafettePipelineEvent"
-    optional :release, :message, 2, "estafette.ci.manifest.v1.EstafetteReleaseEvent"
-    optional :git, :message, 3, "estafette.ci.manifest.v1.EstafetteGitEvent"
-    optional :docker, :message, 4, "estafette.ci.manifest.v1.EstafetteDockerEvent"
-    optional :cron, :message, 5, "estafette.ci.manifest.v1.EstafetteCronEvent"
-    optional :pub_sub, :message, 6, "estafette.ci.manifest.v1.EstafettePubSubEvent"
-    optional :manual, :message, 7, "estafette.ci.manifest.v1.EstafetteManualEvent"
+  add_file("estafette/ci/manifest/v1/estafette_event.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteEvent" do
+      optional :pipeline, :message, 1, "estafette.ci.manifest.v1.EstafettePipelineEvent"
+      optional :release, :message, 2, "estafette.ci.manifest.v1.EstafetteReleaseEvent"
+      optional :git, :message, 3, "estafette.ci.manifest.v1.EstafetteGitEvent"
+      optional :docker, :message, 4, "estafette.ci.manifest.v1.EstafetteDockerEvent"
+      optional :cron, :message, 5, "estafette.ci.manifest.v1.EstafetteCronEvent"
+      optional :pub_sub, :message, 6, "estafette.ci.manifest.v1.EstafettePubSubEvent"
+      optional :manual, :message, 7, "estafette.ci.manifest.v1.EstafetteManualEvent"
+    end
   end
 end
 

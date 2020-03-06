@@ -4,8 +4,10 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteCustomVersion" do
-    optional :label_template, :string, 1
+  add_file("estafette/ci/manifest/v1/estafette_custom_version.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteCustomVersion" do
+      optional :label_template, :string, 1
+    end
   end
 end
 

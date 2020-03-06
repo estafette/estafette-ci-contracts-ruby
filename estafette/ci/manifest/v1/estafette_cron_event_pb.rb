@@ -5,8 +5,10 @@ require 'google/protobuf'
 
 require 'google/protobuf/timestamp_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteCronEvent" do
-    optional :time, :message, 1, "google.protobuf.Timestamp"
+  add_file("estafette/ci/manifest/v1/estafette_cron_event.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteCronEvent" do
+      optional :time, :message, 1, "google.protobuf.Timestamp"
+    end
   end
 end
 

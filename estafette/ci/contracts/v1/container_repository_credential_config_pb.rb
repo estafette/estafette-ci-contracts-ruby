@@ -4,10 +4,12 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.ContainerRepositoryCredentialConfig" do
-    optional :repository, :string, 1
-    optional :username, :string, 2
-    optional :password, :string, 3
+  add_file("estafette/ci/contracts/v1/container_repository_credential_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.ContainerRepositoryCredentialConfig" do
+      optional :repository, :string, 1
+      optional :username, :string, 2
+      optional :password, :string, 3
+    end
   end
 end
 

@@ -4,11 +4,13 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafettePipelineTrigger" do
-    optional :event, :string, 1
-    optional :status, :string, 2
-    optional :name, :string, 3
-    optional :branch, :string, 4
+  add_file("estafette/ci/manifest/v1/estafette_pipeline_trigger.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafettePipelineTrigger" do
+      optional :event, :string, 1
+      optional :status, :string, 2
+      optional :name, :string, 3
+      optional :branch, :string, 4
+    end
   end
 end
 

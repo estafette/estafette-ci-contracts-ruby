@@ -4,12 +4,14 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.TrustedImageConfig" do
-    optional :image_path, :string, 1
-    optional :run_privileged, :bool, 2
-    optional :run_docker, :bool, 3
-    optional :allow_commands, :bool, 4
-    repeated :injected_credential_types, :string, 5
+  add_file("estafette/ci/contracts/v1/trusted_image_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.TrustedImageConfig" do
+      optional :image_path, :string, 1
+      optional :run_privileged, :bool, 2
+      optional :run_docker, :bool, 3
+      optional :allow_commands, :bool, 4
+      repeated :injected_credential_types, :string, 5
+    end
   end
 end
 

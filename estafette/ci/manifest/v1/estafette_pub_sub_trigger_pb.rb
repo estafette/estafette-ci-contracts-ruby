@@ -4,9 +4,11 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafettePubSubTrigger" do
-    optional :project, :string, 1
-    optional :topic, :string, 2
+  add_file("estafette/ci/manifest/v1/estafette_pub_sub_trigger.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafettePubSubTrigger" do
+      optional :project, :string, 1
+      optional :topic, :string, 2
+    end
   end
 end
 

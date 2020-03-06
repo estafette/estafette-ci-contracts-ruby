@@ -4,13 +4,15 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.BuildVersionConfig" do
-    optional :version, :string, 1
-    optional :major, :int64, 2
-    optional :minor, :int64, 3
-    optional :patch, :string, 4
-    optional :label, :string, 5
-    optional :auto_increment, :int64, 6
+  add_file("estafette/ci/contracts/v1/build_version_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.BuildVersionConfig" do
+      optional :version, :string, 1
+      optional :major, :int64, 2
+      optional :minor, :int64, 3
+      optional :patch, :string, 4
+      optional :label, :string, 5
+      optional :auto_increment, :int64, 6
+    end
   end
 end
 

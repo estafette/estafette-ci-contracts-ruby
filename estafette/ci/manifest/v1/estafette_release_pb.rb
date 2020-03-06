@@ -7,12 +7,14 @@ require 'estafette/ci/manifest/v1/estafette_release_action_pb'
 require 'estafette/ci/manifest/v1/estafette_stage_pb'
 require 'estafette/ci/manifest/v1/estafette_trigger_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.manifest.v1.EstafetteRelease" do
-    optional :name, :string, 1
-    optional :clone_repository, :bool, 2
-    repeated :actions, :message, 3, "estafette.ci.manifest.v1.EstafetteReleaseAction"
-    repeated :triggers, :message, 4, "estafette.ci.manifest.v1.EstafetteTrigger"
-    repeated :stages, :message, 5, "estafette.ci.manifest.v1.EstafetteStage"
+  add_file("estafette/ci/manifest/v1/estafette_release.proto", :syntax => :proto3) do
+    add_message "estafette.ci.manifest.v1.EstafetteRelease" do
+      optional :name, :string, 1
+      optional :clone_repository, :bool, 2
+      repeated :actions, :message, 3, "estafette.ci.manifest.v1.EstafetteReleaseAction"
+      repeated :triggers, :message, 4, "estafette.ci.manifest.v1.EstafetteTrigger"
+      repeated :stages, :message, 5, "estafette.ci.manifest.v1.EstafetteStage"
+    end
   end
 end
 

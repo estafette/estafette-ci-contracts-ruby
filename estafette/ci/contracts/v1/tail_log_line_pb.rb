@@ -7,14 +7,16 @@ require 'estafette/ci/contracts/v1/build_log_line_pb'
 require 'estafette/ci/contracts/v1/build_log_step_docker_image_pb'
 require 'google/protobuf/duration_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.TailLogLine" do
-    optional :step, :string, 1
-    optional :log_line, :message, 2, "estafette.ci.contracts.v1.BuildLogLine"
-    optional :image, :message, 3, "estafette.ci.contracts.v1.BuildLogStepDockerImage"
-    optional :duration, :message, 4, "google.protobuf.Duration"
-    optional :exit_code, :int64, 5
-    optional :status, :string, 6
-    optional :auto_injected, :bool, 7
+  add_file("estafette/ci/contracts/v1/tail_log_line.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.TailLogLine" do
+      optional :step, :string, 1
+      optional :log_line, :message, 2, "estafette.ci.contracts.v1.BuildLogLine"
+      optional :image, :message, 3, "estafette.ci.contracts.v1.BuildLogStepDockerImage"
+      optional :duration, :message, 4, "google.protobuf.Duration"
+      optional :exit_code, :int64, 5
+      optional :status, :string, 6
+      optional :auto_injected, :bool, 7
+    end
   end
 end
 

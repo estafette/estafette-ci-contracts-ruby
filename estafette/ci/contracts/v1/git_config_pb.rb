@@ -4,12 +4,14 @@
 require 'google/protobuf'
 
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.GitConfig" do
-    optional :repo_source, :string, 1
-    optional :repo_owner, :string, 2
-    optional :repo_name, :string, 3
-    optional :repo_branch, :string, 4
-    optional :repo_revision, :string, 5
+  add_file("estafette/ci/contracts/v1/git_config.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.GitConfig" do
+      optional :repo_source, :string, 1
+      optional :repo_owner, :string, 2
+      optional :repo_name, :string, 3
+      optional :repo_branch, :string, 4
+      optional :repo_revision, :string, 5
+    end
   end
 end
 

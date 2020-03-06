@@ -7,18 +7,20 @@ require 'google/protobuf/duration_pb'
 require 'google/protobuf/timestamp_pb'
 require 'estafette/ci/manifest/v1/estafette_event_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_message "estafette.ci.contracts.v1.Release" do
-    optional :name, :string, 1
-    optional :action, :string, 2
-    optional :id, :string, 3
-    optional :repo_source, :string, 4
-    optional :repo_owner, :string, 5
-    optional :release_version, :string, 6
-    optional :release_status, :string, 7
-    repeated :events, :message, 8, "estafette.ci.manifest.v1.EstafetteEvent"
-    optional :inserted_at_time, :message, 9, "google.protobuf.Timestamp"
-    optional :updated_at_time, :message, 10, "google.protobuf.Timestamp"
-    optional :duration, :message, 11, "google.protobuf.Duration"
+  add_file("estafette/ci/contracts/v1/release.proto", :syntax => :proto3) do
+    add_message "estafette.ci.contracts.v1.Release" do
+      optional :name, :string, 1
+      optional :action, :string, 2
+      optional :id, :string, 3
+      optional :repo_source, :string, 4
+      optional :repo_owner, :string, 5
+      optional :release_version, :string, 6
+      optional :release_status, :string, 7
+      repeated :events, :message, 8, "estafette.ci.manifest.v1.EstafetteEvent"
+      optional :inserted_at_time, :message, 9, "google.protobuf.Timestamp"
+      optional :updated_at_time, :message, 10, "google.protobuf.Timestamp"
+      optional :duration, :message, 11, "google.protobuf.Duration"
+    end
   end
 end
 
